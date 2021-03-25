@@ -115,7 +115,7 @@ class MimeMagic
     io.set_encoding(Encoding::BINARY) if io.respond_to?(:set_encoding)
     buffer = "".force_encoding(Encoding::BINARY)
 
-    MAGIC.send(method) { |type, matches| magic_match_io(io, matches, buffer) }
+    MAGIC.send(method) { |type, value| magic_match_io(io, value, buffer) }
   end
 
   def self.magic_match_io(io, matches, buffer)
